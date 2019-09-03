@@ -13,11 +13,13 @@ struct MyTask {
     var deadline : String?
     var content : String?
     var priority : String = "None"
+    var isComplete : Bool = false
     
-    init(taskName: String, deadline: String?, content: String?, priority: String) {
+    init(taskName: String, deadline: String?, content: String?, priority: String, isComplete: Bool) {
         self.taskName = taskName
         self.deadline = deadline
         self.content = content
         self.priority = priority
+        self.isComplete = isComplete
     }
 }

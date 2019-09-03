@@ -29,6 +29,7 @@ class CustomTableViewCell: UITableViewCell {
         super.prepareForReuse()
         lblTaskName.text = nil
         lblDeadline.text = nil
+        lblDeadline.sizeToFit()
         lblContent.text = nil
     }
 

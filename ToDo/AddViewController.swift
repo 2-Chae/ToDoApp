@@ -91,7 +91,7 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         }
         let priText = prioritySC.titleForSegment(at: prioritySC.selectedSegmentIndex)
        
-        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: priText!)
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: priText!, isComplete: false)
         list.append(item)
         
         self.navigationController?.popViewController(animated: true)
