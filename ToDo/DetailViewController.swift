@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     
     func receiveItem(_ item: MyTask ){
         receivedName = item.taskName
-        receivedDate = item.deadline
+        receivedDate = item.deadline ?? "Deadline : None"
     }
     /*
     // MARK: - Navigation

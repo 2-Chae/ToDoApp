@@ -20,6 +20,7 @@
 		C331A52D231E12D100071DDB /* excla_green.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52A231E12D000071DDB /* excla_green.png */; };
 		C331A52E231E12D100071DDB /* excla_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52B231E12D000071DDB /* excla_yellow.png */; };
 		C331A52F231E12D100071DDB /* excla_red.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52C231E12D000071DDB /* excla_red.png */; };
+		C331A532231E624C00071DDB /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A531231E624C00071DDB /* MyTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C331A52A231E12D000071DDB /* excla_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_green.png; sourceTree = "<group>"; };
 		C331A52B231E12D000071DDB /* excla_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_yellow.png; sourceTree = "<group>"; };
 		C331A52C231E12D000071DDB /* excla_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_red.png; sourceTree = "<group>"; };
+		C331A531231E624C00071DDB /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				C331A522231D62CD00071DDB /* TableViewController.swift */,
 				C331A46A231D181800071DDB /* Main.storyboard */,
 				C331A46D231D181900071DDB /* Assets.xcassets */,
+				C331A531231E624C00071DDB /* MyTask.swift */,
 				C331A46F231D181900071DDB /* LaunchScreen.storyboard */,
 				C331A472231D181900071DDB /* Info.plist */,
 				C331A526231D74B600071DDB /* CustomTableViewCell.swift */,
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C331A532231E624C00071DDB /* MyTask.swift in Sources */,
 				C331A467231D181800071DDB /* AppDelegate.swift in Sources */,
 				C331A527231D74B600071DDB /* CustomTableViewCell.swift in Sources */,
 				C331A523231D62CD00071DDB /* TableViewController.swift in Sources */,

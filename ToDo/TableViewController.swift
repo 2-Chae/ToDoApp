@@ -8,11 +8,8 @@
 
 import UIKit
 
-struct MyTask {
-    var taskName : String
-    var deadline : String
-}
-
+// save the data to this var. list
+var list = [MyTask]()
 
 var names = ["h", "e", "l", "l"]
 var dates = ["2033", "343", "123", "@353"]
@@ -56,22 +53,40 @@ class TableViewController: UITableViewController {
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
+    // userDefault 데이터 불러오기
 
-        // Configure the cell...
-        cell.tfTaskName?.text = names[(indexPath as NSIndexPath).row]
-        
-        
-        
-        // deadline 없애깅.
-        if dates[(indexPath as NSIndexPath).row] == "Deadline : None" {
-            cell.tfDeadline.isHidden = true;
-        }else {
-            cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
+    
+
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
+//
+//        // Configure the cell...
+//        cell.tfTaskName?.text = names[(indexPath as NSIndexPath).row]
+//
+//        // deadline 없애깅.
+//        if dates[(indexPath as NSIndexPath).row] == "Deadline : None" {
+//            cell.tfDeadline.isHidden = true;
+//        }else {
+//            cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
+//        }
+//        return cell
+//    }
+    
+        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
+    
+            // Configure the cell...
+            cell.lblTaskName?.text = list[(indexPath as NSIndexPath).row].taskName
+    
+            // deadline이 없으면 deadline 표시 안함.
+            if list[(indexPath as NSIndexPath).row].deadline == "Deadline : None" {
+                cell.lblDeadline.isHidden = true;
+            }else {
+                cell.lblDeadline?.text = list[(indexPath as NSIndexPath).row].deadline
+            }
+            return cell
         }
-        return cell
-    }
+
     
     
     /*

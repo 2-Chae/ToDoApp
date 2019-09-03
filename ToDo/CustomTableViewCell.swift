@@ -10,8 +10,8 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    @IBOutlet var tfTaskName: UILabel!
-    @IBOutlet var tfDeadline: UILabel!
+    @IBOutlet var lblTaskName: UILabel!
+    @IBOutlet var lblDeadline: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +26,8 @@ class CustomTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        tfTaskName.text = nil
-        tfDeadline.text = nil
+        lblTaskName.text = nil
+        lblDeadline.text = nil
     }
 
 }
