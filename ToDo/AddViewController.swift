@@ -13,6 +13,7 @@ class AddViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
     @IBOutlet var deadlineSwitch: UISwitch!
+    @IBOutlet var prioritySC: UISegmentedControl!
     @IBOutlet var datePickerView: UIView!
     @IBOutlet var datePicker: UIDatePicker!
     
@@ -88,8 +89,9 @@ class AddViewController: UIViewController , UITextFieldDelegate{
             formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
             dateString = formatter.string(from: datePicker.date)
         }
-    
-        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text)
+        let priText = prioritySC.titleForSegment(at: prioritySC.selectedSegmentIndex)
+       
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: priText!)
         list.append(item)
         
         self.navigationController?.popViewController(animated: true)

@@ -17,7 +17,7 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllData()
-        print(list.description)
+       // print(list.description)
         
         
         // Uncomment the following line to preserve selection between presentations
@@ -33,7 +33,7 @@ class TableViewController: UITableViewController {
 
         
     }
-    
+
     // 뷰가 전환될때 호출되는 함수
     override func viewWillAppear(_ animated: Bool) {
         saveAllData()
@@ -41,11 +41,6 @@ class TableViewController: UITableViewController {
         self.tvListView.reloadData()
     }
     
-
-    
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -63,7 +58,8 @@ class TableViewController: UITableViewController {
             [
                 "taskName": $0.taskName,  // $0 : 0번부터
                 "deadline": $0.deadline!,
-                "content": $0.content
+                "content": $0.content,
+                "priority": $0.priority
             ]
         }
         
@@ -89,8 +85,9 @@ class TableViewController: UITableViewController {
             var taskName = $0["taskName"] as? String
             var deadline = $0["deadline"] as? String
             var content = $0["content"] as? String
+            var priority = $0["priority"] as? String
             
-            return MyTask(taskName: taskName!, deadline: deadline!, content: content)
+            return MyTask(taskName: taskName!, deadline: deadline!, content: content, priority: priority!)
         }
     }
     
@@ -186,7 +183,7 @@ class TableViewController: UITableViewController {
             let item = list[((indexPath as NSIndexPath?)?.row)!]
             
             let detailView = segue.destination as! DetailViewController
-            let myTask = MyTask(taskName: item.taskName ,deadline: item.deadline, content: item.content)
+            let myTask = MyTask(taskName: item.taskName ,deadline: item.deadline, content: item.content, priority: item.priority)
             detailView.receiveItem(myTask)
         }
     }
