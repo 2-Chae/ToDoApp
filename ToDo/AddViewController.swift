@@ -58,6 +58,7 @@ class AddViewController: UIViewController , UITextFieldDelegate{
 //        return true
 //    }
     
+    // Deadline 존재하는지 여부에 따라 datePicker 활성화 처리.
     @IBAction func existDeadline(_ sender: UISwitch) {
         if sender.isOn {
            // print("on")
@@ -69,7 +70,7 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         }
     }
     
-    
+    // Task Name 입력하지 않으면 Done 비활성화
     @IBAction func editChanged(_ sender: UITextField) {
         if sender.text?.isEmpty == true {
             self.navigationItem.rightBarButtonItem?.isEnabled = false

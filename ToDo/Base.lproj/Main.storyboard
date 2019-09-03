@@ -272,6 +272,7 @@ ECAQTm90ZXM
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                 <connections>
+                                    <action selector="editChanged:" destination="nyj-L6-bll" eventType="editingDidEnd" id="VC6-b3-dRC"/>
                                     <action selector="editChanged:" destination="h2V-bX-gXq" eventType="editingChanged" id="uha-gR-wHU"/>
                                 </connections>
                             </textField>
@@ -298,6 +299,7 @@ ECAQTm90ZXM
                                 <rect key="frame" x="306" y="483" width="51" height="31"/>
                                 <connections>
                                     <action selector="existDeadline:" destination="h2V-bX-gXq" eventType="valueChanged" id="0N2-yE-riQ"/>
+                                    <action selector="existDeadline:" destination="nyj-L6-bll" eventType="valueChanged" id="oWR-jt-uub"/>
                                 </connections>
                             </switch>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GFy-qG-mps">

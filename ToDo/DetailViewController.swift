@@ -21,6 +21,10 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // hide the keyboard when touch the screen
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view.
         // setting the textview layer
         nameTextField.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
@@ -34,13 +38,46 @@ class DetailViewController: UIViewController {
         // set the value to the label
         nameTextField.text = receivedTask.taskName
         contentTextView.text = receivedTask.content
-        
+        prioritySC.selectedSegmentIndex = receivedTask.priority
+        if receivedTask.deadline == "None" {
+            deadlineSwitch.isOn = false;
+            datePickerView.isHidden = true;
+        }else{
+            deadlineSwitch.isOn = true;
+            datePickerView.isHidden = false;
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+            datePicker.setDate(formatter.date(from: receivedTask.deadline!)!, animated: true)
+        }
         
         //prioritySC.select(receivedTask.priority)
     }
     
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func receiveItem(_ item: MyTask ){
         receivedTask = item
+    }
+    
+    // Deadline 존재하는지 여부에 따라 datePicker 활성화 처리.
+    @IBAction func existDeadline(_ sender: UISwitch) {
+        if sender.isOn {
+            datePickerView.isHidden = false;
+            
+        }else{
+            datePickerView.isHidden = true;
+        }
+    }
+    
+    // Task Name 입력하지 않으면 Done 비활성화
+    @IBAction func editChanged(_ sender: UITextField) {
+        if sender.text?.isEmpty == true {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+        }else{
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+        }
     }
     
     /*
