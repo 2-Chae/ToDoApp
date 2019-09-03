@@ -52,7 +52,6 @@ class TableViewController: UITableViewController {
         return list.count
     }
 
-    
     // userdefault 저장
     func saveAllData() {
         let data = list.map {
@@ -60,7 +59,8 @@ class TableViewController: UITableViewController {
                 "taskName": $0.taskName,  // $0 : 0번부터
                 "deadline": $0.deadline!,
                 "content": $0.content,
-                "priority": $0.priority
+                "priority": $0.priority,
+                "isComplete": $0.isComplete
             ]
         }
         
@@ -113,6 +113,12 @@ class TableViewController: UITableViewController {
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
     
+            // color
+            cell.lblTaskName.textColor = UIColor.black
+            cell.lblDeadline.textColor = UIColor.black
+            cell.lblContent.textColor = UIColor.black
+            
+            
             // Configure the cell...
             cell.lblTaskName?.text = list[(indexPath as NSIndexPath).row].taskName
             cell.lblContent.text = list[(indexPath as NSIndexPath).row].content
@@ -126,13 +132,15 @@ class TableViewController: UITableViewController {
             }
             
             
+            // checkbox image 설정 (click event)
+            let image = list[(indexPath as NSIndexPath).row].isComplete ? UIImage(named:"ic_check.png") : UIImage(named:"ic_uncheck.png")
+            cell.completeCheckBtn.setImage(image, for: UIControl.State.normal)
+            cell.completeCheckBtn.tag = (indexPath as NSIndexPath).row
+            cell.completeCheckBtn.addTarget(self, action: #selector(self.clickCompleteBtn(_:)), for: .touchUpInside)
+            
+            
             // priority에 따라서 ! 추가.
             let priority = list[(indexPath as NSIndexPath).row].priority
-            
-            if priority == "None" {
-                return cell
-            }
-            
             var exclaCount = 0
             let fontSize = UIFont.boldSystemFont(ofSize: cell.lblTaskName.font.pointSize)
             if priority == "Low" {
@@ -146,14 +154,35 @@ class TableViewController: UITableViewController {
                 exclaCount = 3
             }
             
+            // ! 빨간색으로 표시
             let attributedStr = NSMutableAttributedString(string: cell.lblTaskName!.text!)
             attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: fontSize, range: NSMakeRange(0, exclaCount))
             attributedStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(0, exclaCount))
             cell.lblTaskName.attributedText = attributedStr
             
+            
+            // complete 항목에 대해서 줄 긋고 회색으로 변경
+            if list[(indexPath as NSIndexPath).row].isComplete == true {
+                // 완료되었으면 줄 긋기(strike)
+                attributedStr.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedStr.length))
+                cell.lblTaskName.attributedText = attributedStr
+                
+                cell.lblTaskName.textColor = UIColor.lightGray
+                cell.lblDeadline.textColor = UIColor.lightGray
+                cell.lblContent.textColor = UIColor.lightGray
+            }
+            
             return cell
         }
 
+    
+    // 체크박스 클릭하면 isComplete 를 반전 시킴.
+    @objc func clickCompleteBtn(_ sender: UIButton) {
+        list[sender.tag].isComplete = !list[sender.tag].isComplete
+        saveAllData()
+        self.tvListView.reloadData()
+    }
+    
     
     
     /*

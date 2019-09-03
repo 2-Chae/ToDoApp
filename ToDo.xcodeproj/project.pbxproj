@@ -17,10 +17,9 @@
 		C331A523231D62CD00071DDB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A522231D62CD00071DDB /* TableViewController.swift */; };
 		C331A525231D631000071DDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A524231D631000071DDB /* DetailViewController.swift */; };
 		C331A527231D74B600071DDB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A526231D74B600071DDB /* CustomTableViewCell.swift */; };
-		C331A52D231E12D100071DDB /* excla_green.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52A231E12D000071DDB /* excla_green.png */; };
-		C331A52E231E12D100071DDB /* excla_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52B231E12D000071DDB /* excla_yellow.png */; };
-		C331A52F231E12D100071DDB /* excla_red.png in Resources */ = {isa = PBXBuildFile; fileRef = C331A52C231E12D000071DDB /* excla_red.png */; };
 		C331A532231E624C00071DDB /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A531231E624C00071DDB /* MyTask.swift */; };
+		C3541EB0231EA3FC005D7CA1 /* ic_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */; };
+		C3541EB1231EA3FC005D7CA1 /* ic_check.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAF231EA3FB005D7CA1 /* ic_check.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,10 +56,9 @@
 		C331A522231D62CD00071DDB /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C331A524231D631000071DDB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C331A526231D74B600071DDB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
-		C331A52A231E12D000071DDB /* excla_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_green.png; sourceTree = "<group>"; };
-		C331A52B231E12D000071DDB /* excla_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_yellow.png; sourceTree = "<group>"; };
-		C331A52C231E12D000071DDB /* excla_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = excla_red.png; sourceTree = "<group>"; };
 		C331A531231E624C00071DDB /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
+		C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_uncheck.png; sourceTree = "<group>"; };
+		C3541EAF231EA3FB005D7CA1 /* ic_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +145,8 @@
 		C331A530231E20A500071DDB /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C331A52A231E12D000071DDB /* excla_green.png */,
-				C331A52C231E12D000071DDB /* excla_red.png */,
-				C331A52B231E12D000071DDB /* excla_yellow.png */,
+				C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */,
+				C3541EAF231EA3FB005D7CA1 /* ic_check.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -258,12 +255,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3541EB0231EA3FC005D7CA1 /* ic_uncheck.png in Resources */,
 				C331A471231D181900071DDB /* LaunchScreen.storyboard in Resources */,
 				C331A46E231D181900071DDB /* Assets.xcassets in Resources */,
 				C331A46C231D181800071DDB /* Main.storyboard in Resources */,
-				C331A52E231E12D100071DDB /* excla_yellow.png in Resources */,
-				C331A52D231E12D100071DDB /* excla_green.png in Resources */,
-				C331A52F231E12D100071DDB /* excla_red.png in Resources */,
+				C3541EB1231EA3FC005D7CA1 /* ic_check.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

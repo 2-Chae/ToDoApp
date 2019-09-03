@@ -13,8 +13,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var lblTaskName: UILabel!
     @IBOutlet var lblDeadline: UILabel!
     @IBOutlet var lblContent: UILabel!
+    @IBOutlet var completeCheckBtn: UIButton!
     
-    override func awakeFromNib() {
+    override func awakeFromNib(){
         super.awakeFromNib()
         // Initialization code
     }
