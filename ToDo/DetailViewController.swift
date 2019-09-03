@@ -9,24 +9,40 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    var receivedTask: MyTask!
     
-    var receivedName = ""
-    var receivedDate = ""
-    @IBOutlet var taskName: UILabel!
-    @IBOutlet var deadline: UILabel!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var contentTextView: UITextView!
+    @IBOutlet var deadlineSwitch: UISwitch!
+    @IBOutlet var prioritySC: UISegmentedControl!
+    @IBOutlet var datePickerView: UIView!
+    @IBOutlet var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        taskName.text = receivedName
-        deadline.text = receivedDate
+        // setting the textview layer
+        nameTextField.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
+        nameTextField.layer.borderWidth = 1.1
+        nameTextField.clipsToBounds = true
+       
+        contentTextView.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
+        contentTextView.layer.borderWidth = 1.1
+        contentTextView.clipsToBounds = true
+        
+        // set the value to the label
+        nameTextField.text = receivedTask.taskName
+        contentTextView.text = receivedTask.content
+        
+        
+        //prioritySC.select(receivedTask.priority)
     }
     
     func receiveItem(_ item: MyTask ){
-        receivedName = item.taskName
-        receivedDate = item.deadline ?? "None"
+        receivedTask = item
     }
+    
     /*
     // MARK: - Navigation
 

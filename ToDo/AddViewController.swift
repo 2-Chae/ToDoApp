@@ -42,7 +42,6 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         contentTextView.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
         contentTextView.layer.borderWidth = 1.1
         contentTextView.clipsToBounds = true
-        
     }
     
     @objc func dismissKeyboard() {
@@ -88,9 +87,8 @@ class AddViewController: UIViewController , UITextFieldDelegate{
             formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
             dateString = formatter.string(from: datePicker.date)
         }
-        let priText = prioritySC.titleForSegment(at: prioritySC.selectedSegmentIndex)
        
-        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: priText!, isComplete: false)
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: prioritySC.selectedSegmentIndex, isComplete: false)
         list.append(item)
         
         self.navigationController?.popViewController(animated: true)

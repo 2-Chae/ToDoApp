@@ -86,7 +86,7 @@ class TableViewController: UITableViewController {
             var taskName = $0["taskName"] as? String
             var deadline = $0["deadline"] as? String
             var content = $0["content"] as? String
-            var priority = $0["priority"] as? String
+            var priority = $0["priority"] as? Int
             var isComplete = $0["isComplete"] as? Bool
             
             return MyTask(taskName: taskName!, deadline: deadline!, content: content, priority: priority!, isComplete: isComplete ?? false)
@@ -141,23 +141,23 @@ class TableViewController: UITableViewController {
             
             // priority에 따라서 ! 추가.
             let priority = list[(indexPath as NSIndexPath).row].priority
-            var exclaCount = 0
             let fontSize = UIFont.boldSystemFont(ofSize: cell.lblTaskName.font.pointSize)
-            if priority == "Low" {
-                cell.lblTaskName?.text = "! " + cell.lblTaskName!.text!
-                exclaCount = 1
-            }else if priority == "Medium" {
-                cell.lblTaskName?.text = "!! " + cell.lblTaskName!.text!
-                exclaCount = 2
-            }else if priority == "High" {
-                cell.lblTaskName?.text = "!!! " + cell.lblTaskName!.text!
-                exclaCount = 3
+            
+            var tempIndex = 0;
+            var excla = ""
+            while tempIndex < priority {
+                excla += "!"
+                tempIndex += 1
             }
+            if priority != 0 {
+                excla += " "
+            }
+            cell.lblTaskName?.text = excla + cell.lblTaskName!.text!
             
             // ! 빨간색으로 표시
             let attributedStr = NSMutableAttributedString(string: cell.lblTaskName!.text!)
-            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: fontSize, range: NSMakeRange(0, exclaCount))
-            attributedStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(0, exclaCount))
+            attributedStr.addAttribute(NSAttributedString.Key(rawValue: kCTFontAttributeName as String as String), value: fontSize, range: NSMakeRange(0, priority))
+            attributedStr.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.red, range: NSMakeRange(0, priority))
             cell.lblTaskName.attributedText = attributedStr
             
             

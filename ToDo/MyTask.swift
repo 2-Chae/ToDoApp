@@ -12,10 +12,10 @@ struct MyTask {
     var taskName : String = ""
     var deadline : String?
     var content : String?
-    var priority : String = "None"
+    var priority : Int = 0
     var isComplete : Bool = false
     
-    init(taskName: String, deadline: String?, content: String?, priority: String, isComplete: Bool) {
+    init(taskName: String, deadline: String?, content: String?, priority: Int, isComplete: Bool) {
         self.taskName = taskName
         self.deadline = deadline
         self.content = content
