@@ -56,6 +56,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="lblContent" destination="WeH-pu-oIS" id="uw3-mB-nO3"/>
                                     <outlet property="lblDeadline" destination="t4N-hh-OVM" id="7G8-43-NS8"/>
                                     <outlet property="lblTaskName" destination="xVG-ey-pXN" id="z49-tf-kxs"/>
                                     <segue destination="nyj-L6-bll" kind="show" identifier="sgDetail" id="v04-fk-fQe"/>

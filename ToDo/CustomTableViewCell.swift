@@ -12,6 +12,7 @@ class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet var lblTaskName: UILabel!
     @IBOutlet var lblDeadline: UILabel!
+    @IBOutlet var lblContent: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ class CustomTableViewCell: UITableViewCell {
         super.prepareForReuse()
         lblTaskName.text = nil
         lblDeadline.text = nil
+        lblContent.text = nil
     }
 
 }

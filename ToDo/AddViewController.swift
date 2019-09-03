@@ -81,18 +81,17 @@ class AddViewController: UIViewController , UITextFieldDelegate{
     
     
     @IBAction func btnAddItem(_ sender: UIBarButtonItem) {
-        names.append(nameTextField.text!)
         
-        var dateString = "Deadline : None"
+        var dateString = "None"
         if deadlineSwitch.isOn == true {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
-            dateString = "Deadline : " + formatter.string(from: datePicker.date)
+            dateString = formatter.string(from: datePicker.date)
         }
+    
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text)
+        list.append(item)
         
-        dates.append(dateString)
-        nameTextField.text =  ""
-        contentTextView.text = ""
         self.navigationController?.popViewController(animated: true)
     }
     

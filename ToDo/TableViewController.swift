@@ -11,14 +11,14 @@ import UIKit
 // save the data to this var. list
 var list = [MyTask]()
 
-var names = ["h", "e", "l", "l"]
-var dates = ["2033", "343", "123", "@353"]
-
 class TableViewController: UITableViewController {
     @IBOutlet var tvListView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadAllData()
+        print(list.description)
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -36,8 +36,12 @@ class TableViewController: UITableViewController {
     
     // 뷰가 전환될때 호출되는 함수
     override func viewWillAppear(_ animated: Bool) {
+        saveAllData()
+       // loadAllData()
         self.tvListView.reloadData()
     }
+    
+
     
 
     // MARK: - Table view data source
@@ -49,12 +53,46 @@ class TableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return names.count
+        return list.count
     }
 
     
+    // userdefault 저장
+    func saveAllData() {
+        let data = list.map {
+            [
+                "taskName": $0.taskName,  // $0 : 0번부터
+                "deadline": $0.deadline!,
+                "content": $0.content
+            ]
+        }
+        
+       // print(type(of: data))
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(data, forKey: "items")
+        userDefaults.synchronize()
+    }
+    
+    
     // userDefault 데이터 불러오기
-
+    func loadAllData() {
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "items") as? [[String: AnyObject]] else {
+            return
+        }
+        
+       // print(data.description)
+        
+        // list 배열에 저장하기
+       // print(type(of: data))
+        list = data.map {
+            var taskName = $0["taskName"] as? String
+            var deadline = $0["deadline"] as? String
+            var content = $0["content"] as? String
+            
+            return MyTask(taskName: taskName!, deadline: deadline!, content: content)
+        }
+    }
     
 
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,13 +115,17 @@ class TableViewController: UITableViewController {
     
             // Configure the cell...
             cell.lblTaskName?.text = list[(indexPath as NSIndexPath).row].taskName
-    
+            cell.lblContent.text = list[(indexPath as NSIndexPath).row].content
+            
             // deadline이 없으면 deadline 표시 안함.
-            if list[(indexPath as NSIndexPath).row].deadline == "Deadline : None" {
+            if list[(indexPath as NSIndexPath).row].deadline == "None" {
                 cell.lblDeadline.isHidden = true;
             }else {
                 cell.lblDeadline?.text = list[(indexPath as NSIndexPath).row].deadline
             }
+            
+            
+            
             return cell
         }
 
@@ -104,25 +146,22 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            names.remove(at: (indexPath as NSIndexPath).row)
-            dates.remove(at: (indexPath as NSIndexPath).row)
+            list.remove(at : (indexPath as NSIndexPath).row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
+        saveAllData()
     }
     
 
     
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let taskNameToMove = names[(fromIndexPath as NSIndexPath).row]
-        let dateToMove = dates[(fromIndexPath as NSIndexPath).row]
-        print(fromIndexPath)
-        names.remove(at : (fromIndexPath as NSIndexPath).row)
-        dates.remove(at : (fromIndexPath as NSIndexPath).row)
-        names.insert(taskNameToMove, at : (to as NSIndexPath).row)
-        dates.insert(dateToMove, at : (to as NSIndexPath).row)
+        let itemToMove = list[(fromIndexPath as NSIndexPath).row]
+        list.remove(at : (fromIndexPath as NSIndexPath).row)
+        list.insert(itemToMove, at : (to as NSIndexPath).row)
+        saveAllData()
     }
     
 
@@ -144,13 +183,11 @@ class TableViewController: UITableViewController {
         if segue.identifier == "sgDetail"{
             let cell = sender as! UITableViewCell
             let indexPath = self.tvListView.indexPath(for: cell)
-
+            let item = list[((indexPath as NSIndexPath?)?.row)!]
             
             let detailView = segue.destination as! DetailViewController
-            let myTask = MyTask(taskName: names[((indexPath as NSIndexPath?)?.row)!] ,deadline: dates[((indexPath as NSIndexPath?)?.row)!])
+            let myTask = MyTask(taskName: item.taskName ,deadline: item.deadline, content: item.content)
             detailView.receiveItem(myTask)
-
-
         }
     }
  
