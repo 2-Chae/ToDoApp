@@ -9,15 +9,24 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    
+    var receivedName = ""
+    var receivedDate = ""
     @IBOutlet var taskName: UILabel!
+    @IBOutlet var deadline: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        taskName.text = receivedName
+        deadline.text = receivedDate
     }
     
-
+    func receiveItem(_ item: MyTask ){
+        receivedName = item.taskName
+        receivedDate = item.deadline
+    }
     /*
     // MARK: - Navigation
 

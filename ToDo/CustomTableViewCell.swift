@@ -11,9 +11,7 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
 
     @IBOutlet var tfTaskName: UILabel!
-    @IBOutlet var tfDueDate: UILabel!
-    
-    
+    @IBOutlet var tfDeadline: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +22,12 @@ class CustomTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        tfTaskName.text = nil
+        tfDeadline.text = nil
     }
 
 }

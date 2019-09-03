@@ -8,6 +8,12 @@
 
 import UIKit
 
+struct MyTask {
+    var taskName : String
+    var deadline : String
+}
+
+
 var names = ["h", "e", "l", "l"]
 var dates = ["2033", "343", "123", "@353"]
 
@@ -16,18 +22,26 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.leftBarButtonItem = self.editButtonItem
-        tvListView.dataSource = self
-        tvListView.delegate = self
-        tvListView.rowHeight = 68.0
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        self.tvListView.dataSource = self
+        self.tvListView.delegate = self
+        self.tvListView.rowHeight = 66
+        self.tvListView.contentInset = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0);
+
         
     }
+    
+    // 뷰가 전환될때 호출되는 함수
+    override func viewWillAppear(_ animated: Bool) {
+        self.tvListView.reloadData()
+    }
+    
 
     // MARK: - Table view data source
 
@@ -47,7 +61,7 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         cell.tfTaskName?.text = names[(indexPath as NSIndexPath).row]
-        cell.tfDueDate?.text = dates[(indexPath as NSIndexPath).row]
+        cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
         return cell
     }
     
@@ -64,16 +78,16 @@ class TableViewController: UITableViewController {
     
     
 //    // Override to support editing the table view.
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            // Delete the row from the data source
-//            names.remove(at: (indexPath as NSIndexPath).row)
-//            dates.remove(at: (indexPath as NSIndexPath).row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        } else if editingStyle == .insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            names.remove(at: (indexPath as NSIndexPath).row)
+            dates.remove(at: (indexPath as NSIndexPath).row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
     
 
     
@@ -81,6 +95,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let taskNameToMove = names[(fromIndexPath as NSIndexPath).row]
         let dateToMove = dates[(fromIndexPath as NSIndexPath).row]
+        print(fromIndexPath)
         names.remove(at : (fromIndexPath as NSIndexPath).row)
         dates.remove(at : (fromIndexPath as NSIndexPath).row)
         names.insert(taskNameToMove, at : (to as NSIndexPath).row)
@@ -96,14 +111,25 @@ class TableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "sgDetail"{
+            let cell = sender as! UITableViewCell
+            let indexPath = self.tvListView.indexPath(for: cell)
+
+            
+            let detailView = segue.destination as! DetailViewController
+            let myTask = MyTask(taskName: names[((indexPath as NSIndexPath?)?.row)!] ,deadline: dates[((indexPath as NSIndexPath?)?.row)!])
+            detailView.receiveItem(myTask)
+
+
+        }
     }
-    */
+ 
 
 }
