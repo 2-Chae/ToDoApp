@@ -32,14 +32,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeH-pu-oIS">
-                                            <rect key="frame" x="22.999999999999996" y="46" width="32.666666666666657" height="35.666666666666657"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4N-hh-OVM">
+                                            <rect key="frame" x="22.999999999999996" y="29.333333333333332" width="32.666666666666657" height="15.666666666666668"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4N-hh-OVM">
-                                            <rect key="frame" x="22.999999999999996" y="29.333333333333332" width="32.666666666666657" height="15.666666666666668"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeH-pu-oIS">
+                                            <rect key="frame" x="23.000000000000004" y="46" width="46.333333333333343" height="35.666666666666657"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -203,7 +203,9 @@ ECAQTm90ZXM
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextView" destination="bXe-Iy-Cf5" id="uhx-MV-dRe"/>
+                        <outlet property="datePicker" destination="mFd-T9-oAF" id="RhG-hy-7ZL"/>
                         <outlet property="datePickerView" destination="XUN-ZQ-ytc" id="UjD-to-3AS"/>
+                        <outlet property="deadlineSwitch" destination="N3W-TI-SwY" id="Vo5-kn-ACS"/>
                         <outlet property="nameTextField" destination="89z-bm-1JR" id="iCX-1h-OPB"/>
                     </connections>
                 </viewController>

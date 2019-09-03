@@ -61,7 +61,15 @@ class TableViewController: UITableViewController {
 
         // Configure the cell...
         cell.tfTaskName?.text = names[(indexPath as NSIndexPath).row]
-        cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
+        
+        
+        
+        // deadline 없애깅.
+        if dates[(indexPath as NSIndexPath).row] == "Deadline : None" {
+            cell.tfDeadline.isHidden = true;
+        }else {
+            cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
+        }
         return cell
     }
     

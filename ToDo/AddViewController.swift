@@ -12,7 +12,11 @@ class AddViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
+    @IBOutlet var deadlineSwitch: UISwitch!
     @IBOutlet var datePickerView: UIView!
+    @IBOutlet var datePicker: UIDatePicker!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +82,15 @@ class AddViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func btnAddItem(_ sender: UIBarButtonItem) {
         names.append(nameTextField.text!)
-        dates.append(contentTextView.text!)
+        
+        var dateString = "Deadline : None"
+        if deadlineSwitch.isOn == true {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+            dateString = "Deadline : " + formatter.string(from: datePicker.date)
+        }
+        
+        dates.append(dateString)
         nameTextField.text =  ""
         contentTextView.text = ""
         self.navigationController?.popViewController(animated: true)
