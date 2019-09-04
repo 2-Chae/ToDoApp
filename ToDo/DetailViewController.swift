@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var receivedTask: MyTask!
+    var indexPath: IndexPath!
     
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var contentTextView: UITextView!
@@ -57,8 +58,9 @@ class DetailViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func receiveItem(_ item: MyTask ){
+    func receiveItem(_ item: MyTask , _ index:IndexPath){
         receivedTask = item
+        indexPath = index
     }
     
     // Deadline 존재하는지 여부에 따라 datePicker 활성화 처리.
@@ -79,6 +81,22 @@ class DetailViewController: UIViewController {
             self.navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }
+    
+    @IBAction func btnAddItem(_ sender: UIBarButtonItem) {
+        
+        var dateString = "None"
+        if deadlineSwitch.isOn == true {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+            dateString = formatter.string(from: datePicker.date)
+        }
+        
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: prioritySC.selectedSegmentIndex, isComplete: false)
+        list[((indexPath as NSIndexPath?)?.row)!] = item
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     /*
     // MARK: - Navigation

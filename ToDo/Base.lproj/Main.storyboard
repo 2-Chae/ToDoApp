@@ -26,48 +26,49 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="70.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnw-nA-QFm">
+                                            <rect key="frame" x="17" y="17" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="qsc-pW-cyg"/>
+                                                <constraint firstAttribute="height" constant="35" id="vdr-Rk-Sdg"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="ic_uncheck.png"/>
+                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TaskName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xVG-ey-pXN">
-                                            <rect key="frame" x="63" y="5.9999999999999982" width="80" height="20.333333333333329"/>
+                                            <rect key="frame" x="70" y="5.9999999999999982" width="80" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4N-hh-OVM">
-                                            <rect key="frame" x="63" y="28" width="277" height="21"/>
+                                            <rect key="frame" x="70" y="27" width="277" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeH-pu-oIS">
-                                            <rect key="frame" x="63" y="45" width="296" height="21"/>
+                                            <rect key="frame" x="70" y="44" width="296" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnw-nA-QFm">
-                                            <rect key="frame" x="23" y="22" width="25" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="qsc-pW-cyg"/>
-                                                <constraint firstAttribute="height" constant="25" id="vdr-Rk-Sdg"/>
-                                            </constraints>
-                                            <state key="normal" title="Button" image="ic_uncheck.png"/>
-                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Hnw-nA-QFm" secondAttribute="bottom" constant="23.666666666666671" id="49f-7G-7Hx"/>
-                                        <constraint firstItem="xVG-ey-pXN" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="63" id="7Ku-UG-x9c"/>
-                                        <constraint firstItem="t4N-hh-OVM" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="63" id="FIl-Q3-h4V"/>
-                                        <constraint firstItem="WeH-pu-oIS" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="63" id="GDW-qa-eb5"/>
+                                        <constraint firstAttribute="bottom" secondItem="Hnw-nA-QFm" secondAttribute="bottom" constant="18.670000000000002" id="49f-7G-7Hx"/>
+                                        <constraint firstItem="xVG-ey-pXN" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="70" id="7Ku-UG-x9c"/>
+                                        <constraint firstItem="t4N-hh-OVM" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="70" id="FIl-Q3-h4V"/>
+                                        <constraint firstItem="WeH-pu-oIS" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="70" id="GDW-qa-eb5"/>
                                         <constraint firstAttribute="bottom" secondItem="t4N-hh-OVM" secondAttribute="bottom" constant="21.670000000000002" id="YSi-n1-NAM"/>
-                                        <constraint firstItem="Hnw-nA-QFm" firstAttribute="top" secondItem="Aqf-Wq-JFk" secondAttribute="top" constant="22" id="cnc-TU-zdL"/>
+                                        <constraint firstItem="Hnw-nA-QFm" firstAttribute="top" secondItem="Aqf-Wq-JFk" secondAttribute="top" constant="17" id="cnc-TU-zdL"/>
                                         <constraint firstAttribute="bottom" secondItem="xVG-ey-pXN" secondAttribute="bottom" constant="44.333333333333343" id="dYR-tH-ofO"/>
                                         <constraint firstItem="xVG-ey-pXN" firstAttribute="top" secondItem="Aqf-Wq-JFk" secondAttribute="top" constant="6" id="ejb-9y-aVd"/>
-                                        <constraint firstItem="Hnw-nA-QFm" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="23" id="emo-8K-pRr"/>
+                                        <constraint firstItem="Hnw-nA-QFm" firstAttribute="leading" secondItem="Aqf-Wq-JFk" secondAttribute="leading" constant="18" id="emo-8K-pRr"/>
                                         <constraint firstAttribute="bottom" secondItem="WeH-pu-oIS" secondAttribute="bottom" constant="4.6699999999999999" id="gxC-fS-hQe"/>
                                         <constraint firstItem="t4N-hh-OVM" firstAttribute="top" secondItem="Aqf-Wq-JFk" secondAttribute="top" constant="28" id="lmn-fb-3kb"/>
                                         <constraint firstItem="WeH-pu-oIS" firstAttribute="top" secondItem="Aqf-Wq-JFk" secondAttribute="top" constant="45" id="yux-4y-Pti"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                                 <connections>
                                     <outlet property="completeCheckBtn" destination="Hnw-nA-QFm" id="mSs-eT-dTP"/>
                                     <outlet property="lblContent" destination="WeH-pu-oIS" id="uw3-mB-nO3"/>
@@ -272,8 +273,7 @@ ECAQTm90ZXM
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                 <connections>
-                                    <action selector="editChanged:" destination="nyj-L6-bll" eventType="editingDidEnd" id="VC6-b3-dRC"/>
-                                    <action selector="editChanged:" destination="h2V-bX-gXq" eventType="editingChanged" id="uha-gR-wHU"/>
+                                    <action selector="editChanged:" destination="nyj-L6-bll" eventType="editingChanged" id="AfM-Jp-aBE"/>
                                 </connections>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bId-fR-gXC">
@@ -341,7 +341,11 @@ ECAQTm90ZXM
                         <viewLayoutGuide key="safeArea" id="88Y-po-d4r"/>
                     </view>
                     <navigationItem key="navigationItem" title="Details" largeTitleDisplayMode="never" id="D7A-0E-HXO">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="7Gv-bi-I3n"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="7Gv-bi-I3n">
+                            <connections>
+                                <action selector="btnAddItem:" destination="nyj-L6-bll" id="46f-mx-wmo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextView" destination="bId-fR-gXC" id="bNp-UT-bWa"/>

@@ -17,8 +17,6 @@ class TableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAllData()
-       // print(list.description)
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,17 +28,64 @@ class TableViewController: UITableViewController {
         self.tvListView.delegate = self
         self.tvListView.estimatedRowHeight = 50
         self.tvListView.rowHeight = UITableView.automaticDimension
-        self.tvListView.contentInset = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0);
-
-        
     }
 
     // 뷰가 전환될때 호출되는 함수
     override func viewWillAppear(_ animated: Bool) {
         saveAllData()
-       // loadAllData()
         self.tvListView.reloadData()
     }
+    
+    // 마감기한을 지났는지 체크.
+    func isMissedtheDeadline(deadlineStr: String, today: NSDate) -> Bool {
+        var isMissed = false
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm EEE"
+        
+        let deadline = formatter.date(from: deadlineStr)
+        if today.compare(deadline!) == ComparisonResult.orderedDescending {
+            isMissed = true
+        }
+        
+        return isMissed
+    }
+    
+
+    func getLevelofLaziness() -> Int {
+        // get current Time
+        let today = NSDate()
+    
+        var lazinessCount = 0;
+        var index = 0
+        
+        while index < list.count {
+            if list[index].isComplete == false && list[index].deadline != "None" {
+                if isMissedtheDeadline(deadlineStr: list[index].deadline!, today: today) == true {
+                    lazinessCount += 1
+                }
+            }
+            index += 1
+        }
+        
+        return lazinessCount
+    }
+    
+    // 제일 처음 실행할때 한번.
+    // 마감기한 지난 일에 대해 알림!
+    override func loadView() {
+        super.loadView()
+        loadAllData()
+        
+        let num = getLevelofLaziness()
+        let alert = UIAlertController(title: "Warning", message: "You have " + String(num) + " tasks that you missed the deadline.", preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -93,22 +138,6 @@ class TableViewController: UITableViewController {
         }
     }
     
-
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
-//
-//        // Configure the cell...
-//        cell.tfTaskName?.text = names[(indexPath as NSIndexPath).row]
-//
-//        // deadline 없애깅.
-//        if dates[(indexPath as NSIndexPath).row] == "Deadline : None" {
-//            cell.tfDeadline.isHidden = true;
-//        }else {
-//            cell.tfDeadline?.text = dates[(indexPath as NSIndexPath).row]
-//        }
-//        return cell
-//    }
-    
         // cell 보여지는 모습 설정
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! CustomTableViewCell
@@ -128,7 +157,12 @@ class TableViewController: UITableViewController {
                 cell.lblDeadline.text = "No deadline"
                 cell.lblDeadline.textColor = UIColor.lightGray
             }else {
+                let today = NSDate()
                 cell.lblDeadline?.text = list[(indexPath as NSIndexPath).row].deadline
+                // deadline 넘겼으면 빨간색으로 deadline 표시.
+                if isMissedtheDeadline(deadlineStr: list[(indexPath as NSIndexPath).row].deadline!, today: today) == true {
+                    cell.lblDeadline?.textColor = UIColor.red
+                }
             }
             
             
@@ -194,8 +228,6 @@ class TableViewController: UITableViewController {
     */
 
     
-    
-    
 //    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -241,7 +273,7 @@ class TableViewController: UITableViewController {
             
             let detailView = segue.destination as! DetailViewController
             let myTask = MyTask(taskName: item.taskName ,deadline: item.deadline, content: item.content, priority: item.priority, isComplete: item.isComplete)
-            detailView.receiveItem(myTask)
+            detailView.receiveItem(myTask, indexPath!)
         }
     }
  
