@@ -72,18 +72,17 @@ class TableViewController: UITableViewController {
     }
     
     // 제일 처음 실행할때 한번.
-    // 마감기한 지난 일에 대해 알림!
+    // 마감기한 지난 일에 대해 알림! 지난 일이 없으면 알림 X
     override func loadView() {
         super.loadView()
         loadAllData()
         
         let num = getLevelofLaziness()
-        let alert = UIAlertController(title: "Warning", message: "You have " + String(num) + " tasks that you missed the deadline.", preferredStyle: UIAlertController.Style.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
+        if num != 0 {
+            let alert = UIAlertController(title: "Warning", message: "You have " + String(num) + " tasks that you missed the deadline.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     
@@ -229,15 +228,47 @@ class TableViewController: UITableViewController {
 
     
 //    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            list.remove(at : (indexPath as NSIndexPath).row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            list.remove(at : (indexPath as NSIndexPath).row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//        saveAllData()
+//    }
+
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title:  "Delete") { (action, view, completion) in
+            list.remove(at :(indexPath as NSIndexPath).row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+            self.saveAllData()
         }
-        saveAllData()
+        deleteAction.backgroundColor = UIColor(red: 225/255, green: 43/255, blue: 83/255, alpha: 1)
+        return UISwipeActionsConfiguration(actions:[deleteAction])
+    }
+
+
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let doneAction = UIContextualAction(style: .normal, title:  "Done") { (action, view, completion) in
+            list[(indexPath as NSIndexPath).row].isComplete = !list[(indexPath as NSIndexPath).row].isComplete
+            completion(true)
+            self.saveAllData()
+            self.tvListView.reloadData()
+        }
+        
+        // compelte에 대해서는 undo button을 보여줌.
+        if list[(indexPath as NSIndexPath).row].isComplete == true {
+            doneAction.backgroundColor = UIColor.gray
+            doneAction.title = "Undo"
+        } else {
+            doneAction.backgroundColor = UIColor(red: 83/255, green: 204/255, blue: 122/255, alpha: 1)
+        }
+        return UISwipeActionsConfiguration(actions:[doneAction])
     }
     
 

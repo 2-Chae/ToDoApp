@@ -110,16 +110,13 @@
 			isa = PBXGroup;
 			children = (
 				C331A530231E20A500071DDB /* Images */,
+				C3D6193E231FEB69001CF14B /* Models */,
+				C3D6193C231FEABE001CF14B /* ViewController */,
 				C331A466231D181800071DDB /* AppDelegate.swift */,
-				C331A520231D628200071DDB /* AddViewController.swift */,
-				C331A524231D631000071DDB /* DetailViewController.swift */,
-				C331A522231D62CD00071DDB /* TableViewController.swift */,
 				C331A46A231D181800071DDB /* Main.storyboard */,
 				C331A46D231D181900071DDB /* Assets.xcassets */,
-				C331A531231E624C00071DDB /* MyTask.swift */,
 				C331A46F231D181900071DDB /* LaunchScreen.storyboard */,
 				C331A472231D181900071DDB /* Info.plist */,
-				C331A526231D74B600071DDB /* CustomTableViewCell.swift */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -149,6 +146,25 @@
 				C3541EAF231EA3FB005D7CA1 /* ic_check.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		C3D6193C231FEABE001CF14B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C331A520231D628200071DDB /* AddViewController.swift */,
+				C331A524231D631000071DDB /* DetailViewController.swift */,
+				C331A522231D62CD00071DDB /* TableViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C3D6193E231FEB69001CF14B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C331A531231E624C00071DDB /* MyTask.swift */,
+				C331A526231D74B600071DDB /* CustomTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
