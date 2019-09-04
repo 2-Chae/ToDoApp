@@ -143,8 +143,8 @@ class TableViewController: UITableViewController {
     
             // color
             cell.lblTaskName.textColor = UIColor.black
-            cell.lblDeadline.textColor = UIColor.black
-            cell.lblContent.textColor = UIColor.black
+            cell.lblDeadline.textColor = UIColor.darkGray
+            cell.lblContent.textColor = UIColor.darkGray
             
             
             // Configure the cell...
