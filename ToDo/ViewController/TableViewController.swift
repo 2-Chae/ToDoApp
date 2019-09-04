@@ -9,7 +9,7 @@
 import UIKit
 
 // save the data to this var. list
-var list = [MyTask]()
+var list = helpList
 
 class TableViewController: UITableViewController {
     @IBOutlet var tvListView: UITableView!

@@ -20,6 +20,7 @@
 		C331A532231E624C00071DDB /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A531231E624C00071DDB /* MyTask.swift */; };
 		C3541EB0231EA3FC005D7CA1 /* ic_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */; };
 		C3541EB1231EA3FC005D7CA1 /* ic_check.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAF231EA3FB005D7CA1 /* ic_check.png */; };
+		C3D61940231FEBFA001CF14B /* helpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D6193F231FEBFA001CF14B /* helpData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		C331A531231E624C00071DDB /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
 		C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_uncheck.png; sourceTree = "<group>"; };
 		C3541EAF231EA3FB005D7CA1 /* ic_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check.png; sourceTree = "<group>"; };
+		C3D6193F231FEBFA001CF14B /* helpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				C331A531231E624C00071DDB /* MyTask.swift */,
 				C331A526231D74B600071DDB /* CustomTableViewCell.swift */,
+				C3D6193F231FEBFA001CF14B /* helpData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3D61940231FEBFA001CF14B /* helpData.swift in Sources */,
 				C331A532231E624C00071DDB /* MyTask.swift in Sources */,
 				C331A467231D181800071DDB /* AppDelegate.swift in Sources */,
 				C331A527231D74B600071DDB /* CustomTableViewCell.swift in Sources */,
