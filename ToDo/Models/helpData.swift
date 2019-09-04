@@ -14,5 +14,4 @@ let helpCheck = MyTask(taskName: "Swipe from left to right to Done/Undo", deadli
 let helpDetail = MyTask(taskName: "Click the list to view the details", deadline: "None", content: "", priority: 0, isComplete: false)
 let helpEdit = MyTask(taskName: "Press Edit button to rearrange the list", deadline: "None", content: "", priority: 0, isComplete: false)
 
-
 var helpList = [helpAdd, helpDetail, helpCheck, helpDelete, helpEdit]

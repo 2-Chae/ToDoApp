@@ -25,13 +25,9 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-    
-        // Do any additional setup after loading the view.z
-        
         // setting the initial value
         self.navigationItem.rightBarButtonItem?.isEnabled = false
         datePickerView.isHidden = true;
-        
         
         // setting the textview layer
         nameTextField.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
@@ -48,24 +44,11 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         view.endEditing(true)
     }
     
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let text = (nameTextField.text! as NSString).replacingCharacters(in: range, with: string)
-//        if text.count <= 0 {
-//            self.navigationItem.rightBarButtonItem?.isEnabled = false
-//        } else {
-//            self.navigationItem.rightBarButtonItem?.isEnabled = true
-//        }
-//        return true
-//    }
-    
     // Deadline 존재하는지 여부에 따라 datePicker 활성화 처리.
     @IBAction func existDeadline(_ sender: UISwitch) {
         if sender.isOn {
-           // print("on")
             datePickerView.isHidden = false;
-            
         }else{
-           // print("off")
             datePickerView.isHidden = true;
         }
     }
@@ -79,9 +62,8 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         }
     }
     
-    
+    // Click Add button
     @IBAction func btnAddItem(_ sender: UIBarButtonItem) {
-        
         var dateString = "None"
         if deadlineSwitch.isOn == true {
             let formatter = DateFormatter()
@@ -98,15 +80,6 @@ class AddViewController: UIViewController , UITextFieldDelegate{
     @IBAction func btnCancelItem(_ sender: UIBarButtonItem) {
          self.navigationController?.popViewController(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

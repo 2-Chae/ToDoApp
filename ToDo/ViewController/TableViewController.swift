@@ -127,11 +127,11 @@ class TableViewController: UITableViewController {
         // list 배열에 저장하기
        // print(type(of: data))
         list = data.map {
-            var taskName = $0["taskName"] as? String
-            var deadline = $0["deadline"] as? String
-            var content = $0["content"] as? String
-            var priority = $0["priority"] as? Int
-            var isComplete = $0["isComplete"] as? Bool
+            let taskName = $0["taskName"] as? String
+            let deadline = $0["deadline"] as? String
+            let content = $0["content"] as? String
+            let priority = $0["priority"] as? Int
+            let isComplete = $0["isComplete"] as? Bool
             
             return MyTask(taskName: taskName!, deadline: deadline!, content: content, priority: priority!, isComplete: isComplete ?? false)
         }
@@ -247,7 +247,7 @@ class TableViewController: UITableViewController {
             completion(true)
             self.saveAllData()
         }
-        deleteAction.backgroundColor = UIColor(red: 225/255, green: 43/255, blue: 83/255, alpha: 1)
+        deleteAction.backgroundColor = UIColor(red: 252/255, green: 54/255, blue: 53/255, alpha: 1)
         return UISwipeActionsConfiguration(actions:[deleteAction])
     }
 
@@ -271,8 +271,7 @@ class TableViewController: UITableViewController {
         return UISwipeActionsConfiguration(actions:[doneAction])
     }
     
-
-    
+ 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let itemToMove = list[(fromIndexPath as NSIndexPath).row]

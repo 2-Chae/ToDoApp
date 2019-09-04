@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Today-->
+        <!--TODO-->
         <scene sceneID="brQ-Ej-Kdt">
             <objects>
                 <tableViewController id="dcy-Hd-0J7" customClass="TableViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,7 +79,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Today" largeTitleDisplayMode="always" id="GyV-52-VPK">
+                    <navigationItem key="navigationItem" title="TODO" largeTitleDisplayMode="always" id="GyV-52-VPK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Wqj-wL-sRq">
                             <connections>
                                 <segue destination="h2V-bX-gXq" kind="show" id="frC-q8-xKe"/>
@@ -136,7 +136,7 @@ ECAQTm90ZXM
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="next"/>
                                 <connections>
                                     <action selector="editChanged:" destination="h2V-bX-gXq" eventType="editingChanged" id="6vP-FA-5dw"/>
                                 </connections>
