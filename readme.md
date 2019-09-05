@@ -1,4 +1,7 @@
 # ToDo App 
+
+![Alt text](/Screenshots/Main.png)
+
 Simple TODO App for ios <br>
 by. Chaehyeon Lee <br>
 be optimised for iphone X (11.4 - 12.4)<br>
@@ -27,4 +30,6 @@ be optimised for iphone X (11.4 - 12.4)<br>
 
 
 ## About Alerts for Out-of-Date Tasks
-You will have an alert if you have any out-of-date tasks when you open the app. 
+You will have an alert only if you have any out-of-date tasks when you open the app. 
+
+![Alt text](/Screenshots/Alert.png)
