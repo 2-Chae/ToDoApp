@@ -30,6 +30,8 @@ class AddViewController: UIViewController , UITextFieldDelegate{
         datePickerView.isHidden = true;
         
         // setting the textview layer
+        
+        
         nameTextField.layer.borderColor = UIColor(displayP3Red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0).cgColor
         nameTextField.layer.borderWidth = 1.1
         nameTextField.clipsToBounds = true

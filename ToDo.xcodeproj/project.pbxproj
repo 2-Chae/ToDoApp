@@ -14,13 +14,13 @@
 		C331A47C231D181900071DDB /* ToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A47B231D181900071DDB /* ToDoTests.swift */; };
 		C331A487231D181900071DDB /* ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A486231D181900071DDB /* ToDoUITests.swift */; };
 		C331A521231D628200071DDB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A520231D628200071DDB /* AddViewController.swift */; };
-		C331A523231D62CD00071DDB /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A522231D62CD00071DDB /* TableViewController.swift */; };
 		C331A525231D631000071DDB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A524231D631000071DDB /* DetailViewController.swift */; };
 		C331A527231D74B600071DDB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A526231D74B600071DDB /* CustomTableViewCell.swift */; };
 		C331A532231E624C00071DDB /* MyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = C331A531231E624C00071DDB /* MyTask.swift */; };
 		C3541EB0231EA3FC005D7CA1 /* ic_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */; };
 		C3541EB1231EA3FC005D7CA1 /* ic_check.png in Resources */ = {isa = PBXBuildFile; fileRef = C3541EAF231EA3FB005D7CA1 /* ic_check.png */; };
-		C3D61940231FEBFA001CF14B /* helpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D6193F231FEBFA001CF14B /* helpData.swift */; };
+		C3D6194823209FD4001CF14B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D6194723209FD4001CF14B /* TableViewController.swift */; };
+		C3D6194A2320BD1A001CF14B /* ManageTaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D619492320BD1A001CF14B /* ManageTaskList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,13 +54,13 @@
 		C331A486231D181900071DDB /* ToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoUITests.swift; sourceTree = "<group>"; };
 		C331A488231D181900071DDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C331A520231D628200071DDB /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
-		C331A522231D62CD00071DDB /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		C331A524231D631000071DDB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		C331A526231D74B600071DDB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C331A531231E624C00071DDB /* MyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTask.swift; sourceTree = "<group>"; };
 		C3541EAE231EA3FB005D7CA1 /* ic_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_uncheck.png; sourceTree = "<group>"; };
 		C3541EAF231EA3FB005D7CA1 /* ic_check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_check.png; sourceTree = "<group>"; };
-		C3D6193F231FEBFA001CF14B /* helpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helpData.swift; sourceTree = "<group>"; };
+		C3D6194723209FD4001CF14B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C3D619492320BD1A001CF14B /* ManageTaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTaskList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 			children = (
 				C331A520231D628200071DDB /* AddViewController.swift */,
 				C331A524231D631000071DDB /* DetailViewController.swift */,
-				C331A522231D62CD00071DDB /* TableViewController.swift */,
+				C3D6194723209FD4001CF14B /* TableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 			children = (
 				C331A531231E624C00071DDB /* MyTask.swift */,
 				C331A526231D74B600071DDB /* CustomTableViewCell.swift */,
-				C3D6193F231FEBFA001CF14B /* helpData.swift */,
+				C3D619492320BD1A001CF14B /* ManageTaskList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,13 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3D61940231FEBFA001CF14B /* helpData.swift in Sources */,
 				C331A532231E624C00071DDB /* MyTask.swift in Sources */,
 				C331A467231D181800071DDB /* AppDelegate.swift in Sources */,
+				C3D6194823209FD4001CF14B /* TableViewController.swift in Sources */,
 				C331A527231D74B600071DDB /* CustomTableViewCell.swift in Sources */,
-				C331A523231D62CD00071DDB /* TableViewController.swift in Sources */,
 				C331A521231D628200071DDB /* AddViewController.swift in Sources */,
 				C331A525231D631000071DDB /* DetailViewController.swift in Sources */,
+				C3D6194A2320BD1A001CF14B /* ManageTaskList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +415,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -470,7 +470,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

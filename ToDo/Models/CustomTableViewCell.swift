@@ -14,6 +14,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var lblDeadline: UILabel!
     @IBOutlet var lblContent: UILabel!
     @IBOutlet var completeCheckBtn: UIButton!
+    @IBOutlet var detailsButton: UIButton!
+    
     
     override func awakeFromNib(){
         super.awakeFromNib()
@@ -25,6 +27,7 @@ class CustomTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         lblTaskName.text = nil
         lblDeadline.text = nil
         lblDeadline.sizeToFit()

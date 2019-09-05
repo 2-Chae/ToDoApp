@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: AddViewController {
     var receivedTask: MyTask!
-    var indexPath: IndexPath!
+    var index: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +33,9 @@ class DetailViewController: AddViewController {
         }
     }
     
-    func receiveItem(_ item: MyTask , _ index:IndexPath){
+    func receiveItem(_ item: MyTask , _ indexx:Int){
         receivedTask = item
-        indexPath = index
+        index = indexx
     }
     
     @IBAction override func btnAddItem(_ sender: UIBarButtonItem) {
@@ -46,8 +46,8 @@ class DetailViewController: AddViewController {
             dateString = formatter.string(from: datePicker.date)
         }
         
-        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: prioritySC.selectedSegmentIndex, isComplete: false)
-        list[((indexPath as NSIndexPath?)?.row)!] = item
+        let item: MyTask = MyTask(taskName: nameTextField.text!, deadline: dateString, content: contentTextView.text, priority: prioritySC.selectedSegmentIndex, isComplete: receivedTask.isComplete)
+        list[index] = item
         
         self.navigationController?.popViewController(animated: true)
     }
