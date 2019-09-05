@@ -451,14 +451,11 @@ ECAQTm90ZXM
                         <viewLayoutGuide key="safeArea" id="9m3-Hj-hYa"/>
                     </view>
                     <navigationItem key="navigationItem" title="TODO" id="SUt-Ol-8GR">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="6ra-um-rdZ">
-                                <connections>
-                                    <segue destination="h2V-bX-gXq" kind="show" id="XJR-5X-Of6"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Help" id="29t-NF-VNs"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="6ra-um-rdZ">
+                            <connections>
+                                <segue destination="h2V-bX-gXq" kind="show" id="XJR-5X-Of6"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="rmButtonView" destination="JSp-02-Cx4" id="opB-HS-3wt"/>
