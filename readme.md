@@ -24,3 +24,7 @@ be optimised for iphone X (11.4 - 12.4)<br>
   * You can also complete/uncomplete a task by pressing the checkbox on the left side.
 * Rearrange the list by pressing the **Edit** button on the top left.
 * Remove all completed tasks by pressing the **Remove All Completed Tasks** at once.
+
+
+## About Alerts for Out-of-Date Tasks
+You will have an alert if you have any out-of-date tasks when you open the app. 
